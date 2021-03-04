@@ -1,0 +1,22 @@
+<!-- Vérifier le type de formulaire -->
+<% if( type === 'PUT' ) {%> 
+    <p>Tous les champs sont obligatoire pour la mise à jour</p>
+    <form action="/page/<%- data.id %>/update" method="POST">
+        <label for="title">Titre</label>
+        <input type="text" name="title" required minlength="2" value="<%- data.title %>">
+        <label for="content">Contenu</label>
+        <textarea name="content" required minlength="2"><%- data.content %></textarea>
+        <button type="submit">Update</button>
+    </form>
+<% }%> 
+
+<% if( type === 'POST' ) {%> 
+    <p>Tous les champs sont obligatoire pour la création d'une page</p>
+    <form action="/page/<%- data.id %>/create" method="POST">
+        <label for="title">Titre</label>
+        <input type="text" name="title" required minlength="2">
+        <label for="content">Contenu</label>
+        <textarea name="content" required minlength="2"></textarea>
+        <button type="submit">Create</button>
+    </form>
+<% }%> 

@@ -1,0 +1,25 @@
+<%- include('statics/header') -%>
+
+<main>
+    <ul class="noListStyle">
+        <% for(let item of data) { %>
+            <li>
+                <ul class="flexBox spaceBetween">
+                    <li><%- item.title %></li>
+                    <li>
+                        <ul class="flexBox spaceBetween">
+                            <li><a class="button" href="/update/page/<%- item.id %>">Update</a></li>
+                            <li>
+                                <form action="/page/<%- item.id %>/delete" method="POST">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        <% } %>
+    </ul>
+</main>
+
+<%- include('statics/footer') -%>
